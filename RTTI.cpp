@@ -1,6 +1,6 @@
   //: C08:Rtshapes.cpp
 // Counting shapes
-#include "../purge.h"
+//#include "../purge.h"
 #include <iostream>
 #include <ctime>
 #include <typeinfo>
@@ -102,5 +102,13 @@ cout << endl << endl
 << SRectangle::quantity() << endl
 << "Shape::quantity() = "
 << Shape::quantity() << endl;
-purge(shapes);
+for(vector<Shape*>::iterator itr=shapes.begin();itr!=shapes.end();itr++)
+{
+    Shape* p = (*itr);
+    //itr++;
+delete p;
+p = NULL;
+}
+  
+  
 } ///:~
